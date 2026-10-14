@@ -82,3 +82,22 @@ Il precedente timeout dell'automazione non consente di attestare questo
 passaggio. Nessun via libera definitivo all'annuncio finché questo controllo
 e la revisione dell'utente non sono conclusi. Restano validi gli altri limiti
 elencati nel rapporto interno e in questo documento.
+
+## Esiti del collaudo manuale Chrome
+
+Il controllo manuale dei backup precedentemente indicato come aperto è
+completato. Esiti osservati tramite schermate del collaudo, distinti dai test
+automatici; nessuna attestazione di audit indipendente.
+
+- Creazione, download JSON, verifica e attivazione riusciti.
+- Ripristino da JSON riuscito con indirizzo corrispondente, senza obbligo
+  di creare un ulteriore backup.
+- Caricamento di saldo e storico dopo il ripristino riuscito.
+- Verifica autonoma: copia corretta riconosciuta con indirizzo corrispondente.
+- Copia valida di un altro wallet: segnalata come indirizzo diverso.
+- Password errata: verifica rifiutata con il messaggio previsto.
+
+Nessun nuovo difetto emerso da queste prove. Via libera tecnico alla versione
+sperimentale esaminata, nei limiti documentati della revisione interna.
+Collegamento dall'explorer e annuncio restano in attesa dell'approvazione
+finale del progetto. Nessuna modifica al codice o all'artefatto.
