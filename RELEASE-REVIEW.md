@@ -39,3 +39,12 @@ Nessun link wallet aggiunto all'explorer, nessun annuncio. Noindex è una
 richiesta ai motori, non autenticazione: sito e repository sono accessibili.
 Testi legali restano in revisione; nessuna attestazione di conformità legale.
 Guida completa per un proprio Electrum rimandata a una fase successiva.
+
+## Aggiornamento avviso connessione
+
+Aggiunto un avviso immediatamente sopra il menu della versione pubblica:
+Core RPC e server Electrum personali sono disponibili nella copia locale.
+Commit applicativo corrente: a98a7839e852dd9e78fadb5bb7a33a238df52a8e.
+Artefatto corrente: 40ba892007db8262f59d5f077cfa448dd8b252eb6e2c51a746249ba8ca9df940.
+Controlli statici e confronto hash HTTPS ripetuti e superati. Nessuna modifica
+alla logica del wallet; restano validi i limiti del collaudo browser sopra.
