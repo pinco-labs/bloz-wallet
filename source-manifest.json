@@ -1,5 +1,5 @@
 {
-  "id": "934f911ae6af4ad1c395c0b92f1499e9b2038579535bd7f8b65e64706cd090ef",
+  "id": "5e14e645804eed5cc5a0d8a7888469caaaffbcdfe971c6b02150c7119b16852c",
   "files": [
     {
       "path": "wallet/.gitignore",
@@ -63,8 +63,8 @@
     },
     {
       "path": "wallet/build-mainnet.js",
-      "bytes": 6044,
-      "sha256": "5d129ed9081b4dea9fa37beeeb1533271cbc2fb58df4d3a71d9898bead277fa0"
+      "bytes": 6339,
+      "sha256": "662b9c572c643029c4d2f31f2cc61bfce70fc3522dcdaf003434a5b2b323b9fe"
     },
     {
       "path": "wallet/build.js",

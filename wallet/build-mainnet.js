@@ -43,6 +43,7 @@ if (publicBuild) {
   html = html.replace('<meta charset="utf-8">', '<meta name="robots" content="noindex, nofollow"><meta charset="utf-8">');
   html = html.replace('Un wallet locale BLOZ SegWit per una prova privata su mainnet.', 'Un wallet BLOZ SegWit sperimentale su mainnet.');
   html = html.replaceAll('MAINNET PRIVATA','MAINNET SPERIMENTALE').replaceAll('Mainnet privata','Mainnet sperimentale').replaceAll('PROVA PRIVATA','VERSIONE SPERIMENTALE').replaceAll('Prova privata su mainnet.','Versione sperimentale su mainnet.');
+  html = html.replace('<form id="connection-form">', '<p id="public-connection-note">Questa pagina web usa i nodi Electrum Pinco Labs. Per usare il tuo nodo Core via RPC o server Electrum personali, avvia la copia locale del wallet seguendo la guida qui sopra.</p><form id="connection-form">');
   html = html.replace('Per aggiungere server alla tua copia locale,', 'Questa versione pubblica usa solo i server predefiniti. Per aggiungere server alla tua copia locale,');
 }
 await writeFile(new URL('./index.html', directory), html);
