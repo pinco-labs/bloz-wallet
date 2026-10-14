@@ -1,0 +1,124 @@
+{
+  "at": "2026-10-14T11:18:44.758Z",
+  "artifactId": "5d2cbe8ba536b8f21f55b7101b07e8396da12f20c6bbaa861fb7ec94de85a5f4",
+  "sourceCommit": "793bc4a7abc6fe53f87b4281031205cb9efc115a",
+  "results": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "hashMatches": true,
+      "headers": {
+        "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' wss://electrum-bloz.pinco-labs.com:50004/ wss://electrum2-bloz.pinco-labs.com:50004/; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'",
+        "cache-control": "no-store, no-transform",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "x-frame-options": "DENY",
+        "cross-origin-opener-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=()",
+        "strict-transport-security": "max-age=31536000",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "nel": null,
+        "report-to": null
+      },
+      "cookieNames": []
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "hashMatches": true,
+      "headers": {
+        "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' wss://electrum-bloz.pinco-labs.com:50004/ wss://electrum2-bloz.pinco-labs.com:50004/; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'",
+        "cache-control": "no-store, no-transform",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "x-frame-options": "DENY",
+        "cross-origin-opener-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=()",
+        "strict-transport-security": "max-age=31536000",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "nel": null,
+        "report-to": null
+      },
+      "cookieNames": []
+    },
+    {
+      "file": "style.css",
+      "status": 200,
+      "hashMatches": true,
+      "headers": {
+        "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' wss://electrum-bloz.pinco-labs.com:50004/ wss://electrum2-bloz.pinco-labs.com:50004/; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'",
+        "cache-control": "no-store, no-transform",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "x-frame-options": "DENY",
+        "cross-origin-opener-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=()",
+        "strict-transport-security": "max-age=31536000",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "nel": null,
+        "report-to": null
+      },
+      "cookieNames": []
+    },
+    {
+      "file": "connections.json",
+      "status": 200,
+      "hashMatches": true,
+      "headers": {
+        "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' wss://electrum-bloz.pinco-labs.com:50004/ wss://electrum2-bloz.pinco-labs.com:50004/; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'",
+        "cache-control": "no-store, no-transform",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "x-frame-options": "DENY",
+        "cross-origin-opener-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=()",
+        "strict-transport-security": "max-age=31536000",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "nel": null,
+        "report-to": null
+      },
+      "cookieNames": []
+    },
+    {
+      "file": "LICENSES.txt",
+      "status": 200,
+      "hashMatches": true,
+      "headers": {
+        "content-security-policy": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' wss://electrum-bloz.pinco-labs.com:50004/ wss://electrum2-bloz.pinco-labs.com:50004/; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'",
+        "cache-control": "no-store, no-transform",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "x-frame-options": "DENY",
+        "cross-origin-opener-policy": "same-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), usb=()",
+        "strict-transport-security": "max-age=31536000",
+        "x-robots-tag": "noindex, nofollow, noarchive",
+        "nel": null,
+        "report-to": null
+      },
+      "cookieNames": []
+    }
+  ],
+  "redirect": {
+    "status": 301,
+    "location": "https://wallet-bloz.pinco-labs.com/"
+  },
+  "extra": [
+    {
+      "path": "/.env",
+      "status": 404
+    },
+    {
+      "path": "/src/keys.js",
+      "status": 404
+    },
+    {
+      "path": "/_headers",
+      "status": 404
+    }
+  ],
+  "explorer": {
+    "status": 200,
+    "hasWalletLink": false
+  }
+}
