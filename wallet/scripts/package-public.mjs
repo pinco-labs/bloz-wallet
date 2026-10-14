@@ -15,7 +15,7 @@ notices+='\n\nThird-party notices (original licenses retained)\n';
 for(const name of (await readdir(new URL('../licenses/',import.meta.url))).sort()) notices+=`\n--- ${name} ---\n${await readFile(new URL('../licenses/'+name,import.meta.url),'utf8')}`;
 await writeFile(new URL('LICENSES.txt',dir),notices);
 const csp=`default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self' ${ELECTRUM_ENDPOINTS.join(' ')}; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; worker-src 'none'`;
-await writeFile(new URL('_headers',dir),`/*\n  Content-Security-Policy: ${csp}\n  Cache-Control: no-store\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Frame-Options: DENY\n  Cross-Origin-Opener-Policy: same-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=()\n  Strict-Transport-Security: max-age=31536000\n`);
+await writeFile(new URL('_headers',dir),`/*\n  Content-Security-Policy: ${csp}\n  Cache-Control: no-store, no-transform\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Frame-Options: DENY\n  Cross-Origin-Opener-Policy: same-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=()\n  Strict-Transport-Security: max-age=31536000\n`);
 const allowed=['index.html','app.js','style.css','connections.json','LICENSES.txt','_headers','manifest.json'];
 const names=await readdir(dir);
 if(names.some(n=>!allowed.includes(n)))throw Error('File estraneo nella directory pubblica: pacchetto rifiutato.');

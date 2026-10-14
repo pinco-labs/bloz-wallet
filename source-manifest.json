@@ -1,5 +1,5 @@
 {
-  "id": "84d94fef74f2f70c2b0e1fc6391fa01d6cdc564e9a72bc8a42abc45e03a391ef",
+  "id": "934f911ae6af4ad1c395c0b92f1499e9b2038579535bd7f8b65e64706cd090ef",
   "files": [
     {
       "path": "wallet/.gitignore",
@@ -213,8 +213,8 @@
     },
     {
       "path": "wallet/scripts/package-public.mjs",
-      "bytes": 2653,
-      "sha256": "53d293d1760fde6fa1b62595e24e4c70ccc586e2664b8bb853f2c5483456b3da"
+      "bytes": 2667,
+      "sha256": "6b6d8d5f5cd31168f88669b5ea79fa57bca5d048b67f0ea5e661a24cc4ba912d"
     },
     {
       "path": "wallet/scripts/package-source.mjs",
