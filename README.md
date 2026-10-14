@@ -2,6 +2,8 @@
 
 **An experimental, non-custodial, open-source SegWit wallet for BLOZ.**
 
+Built by Pinco Labs as a contribution to the BLOZ community.
+
 [Open the wallet](https://wallet-bloz.pinco-labs.com/) · [Italiano](README.it.md) · [License](LICENSE)
 
 Private keys and passwords stay on your device. Transactions are signed in

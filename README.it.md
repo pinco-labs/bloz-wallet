@@ -2,6 +2,8 @@
 
 [English](README.md) · Italiano
 
+Realizzato da Pinco Labs come contributo alla community BLOZ.
+
 Wallet SegWit non custodial, versione sperimentale per revisione. Chiavi e
 password restano sul dispositivo; la firma avviene nel browser.
 
