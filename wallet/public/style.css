@@ -8,3 +8,5 @@
 .custody-note { border: 1px solid #658d40; border-left: 4px solid #b6fa79; border-radius: 12px; padding: 20px 28px; margin: 24px 0; background: #152019; }
 .custody-note h2 { margin-top: 0; }
 .custody-note code { overflow-wrap: anywhere; }
+.language-picker{max-width:1140px;margin:0 auto;padding:12px 32px 0;display:flex;align-items:center;justify-content:flex-end;gap:12px}.language-picker label{margin:0}.language-picker select{width:auto;min-width:120px;padding:8px 12px;background:#131c22;color:#e9eef1;border:1px solid #586879;border-radius:6px;font:inherit}.language-picker select:focus-visible{outline:2px solid #b5f0cf;outline-offset:3px}@media(max-width:640px){.language-picker{padding-inline:20px}}
+.language-picker[hidden]{display:none}

@@ -66,3 +66,22 @@ log di sistema e Cloudflare seguono politiche separate.
 - Collaudo browser ulteriori e interoperabilità con nodi di terzi.
 
 Il miner è escluso dal pacchetto e resta privato.
+
+## Aggiornamento interfaccia bilingue — 14 ottobre 2026
+
+La versione mainnet include italiano e inglese. La lingua iniziale segue la
+preferenza del browser (inglese per altre lingue); il selettore conserva
+soltanto una preferenza locale separata dai dati del wallet.
+
+Le traduzioni modificano esclusivamente nodi di testo ed etichette di
+presentazione. Non usano innerHTML e non modificano campi, valori, URL,
+chiavi, contenitori cifrati o logica di firma. I campi privati e i blocchi
+codice sono esclusi dalla scansione. Importi e identificativi interpolati
+nel riepilogo vengono conservati esattamente. Nessuna nuova dipendenza.
+
+Suite: 71 test superati (cinque aggiunti per lingua, copertura dei testi,
+errori, parametri e conservazione di importi/indirizzi). Browser integrato:
+passaggio IT/EN e ritorno senza cambio di indirizzo usa e getta, messaggi
+dinamici e persistenza della lingua dopo ricaricamento verificati. Non è un
+nuovo audit indipendente né una ripetizione del collaudo mainnet finanziato.
+I controlli sulla release HTTPS finale sono riportati in RELEASE-REVIEW.md.

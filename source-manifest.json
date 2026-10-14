@@ -1,50 +1,10 @@
 {
-  "id": "5e14e645804eed5cc5a0d8a7888469caaaffbcdfe971c6b02150c7119b16852c",
+  "id": "9ea0449759c0c8e01b05639aaa4da842800ced62c11b4e40c4b23ae170fe768c",
   "files": [
     {
       "path": "wallet/.gitignore",
       "bytes": 96,
       "sha256": "ccb742d0127feeabd13064ce5cc6d5ebbf636401387c0c84cf18eb937d989ed1"
-    },
-    {
-      "path": "wallet/LICENSE",
-      "bytes": 34523,
-      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
-    },
-    {
-      "path": "wallet/LICENSING.md",
-      "bytes": 1543,
-      "sha256": "d7e5c849a44893886a03af0662c3b817a4f2f4d331a736a1d29cb17dec616c1f"
-    },
-    {
-      "path": "wallet/LOCAL-START.md",
-      "bytes": 3036,
-      "sha256": "29650047aa8c4d58f85e641632dd2eec4e273d4c93662fb0cd8f5c9282a6d833"
-    },
-    {
-      "path": "wallet/PRIVACY-DRAFT.md",
-      "bytes": 3620,
-      "sha256": "2701774c5223bc015c1dd2ccddf498b4d687a01063c91efb4303db039f575ffe"
-    },
-    {
-      "path": "wallet/README.md",
-      "bytes": 20142,
-      "sha256": "3a30e047dab43c427a3d324c1ce70689a95263b835ddc7899a07923373d495a6"
-    },
-    {
-      "path": "wallet/SECURITY-REVIEW-INTERNAL.md",
-      "bytes": 3864,
-      "sha256": "0762073dcc34fc6ca03f94ce4c47022476145104f793aca7c3b9b5d05e97f0b5"
-    },
-    {
-      "path": "wallet/TERMS-DRAFT.md",
-      "bytes": 2890,
-      "sha256": "c63b852d7568f6b87946c0e4c54ac281a68fbbc01048dcf91bc4f8b10802ffc9"
-    },
-    {
-      "path": "wallet/THIRD-PARTY.md",
-      "bytes": 1390,
-      "sha256": "79046f6e8cf5e3ac2272c8b617bf3b71659e7bda37d3319ece8ff1c220857de5"
     },
     {
       "path": "wallet/balance.js",
@@ -87,6 +47,11 @@
       "sha256": "f60424acbf75e3cc5b6274a77dea789db2e08a560212c1220cc7e3849941ed90"
     },
     {
+      "path": "wallet/LICENSE",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
       "path": "wallet/licenses/blockzero-core.txt",
       "bytes": 1142,
       "sha256": "b028769f3852a9368ab10bd754ff01ebb741f84a2fa658c9aff82a631bc6ecfc"
@@ -122,6 +87,16 @@
       "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
     },
     {
+      "path": "wallet/LICENSING.md",
+      "bytes": 1543,
+      "sha256": "d7e5c849a44893886a03af0662c3b817a4f2f4d331a736a1d29cb17dec616c1f"
+    },
+    {
+      "path": "wallet/LOCAL-START.md",
+      "bytes": 3036,
+      "sha256": "29650047aa8c4d58f85e641632dd2eec4e273d4c93662fb0cd8f5c9282a6d833"
+    },
+    {
       "path": "wallet/mainnet-offline-server.js",
       "bytes": 389,
       "sha256": "be71e589b144d67e7a782273fd4f741f430e96744e20c96ee2ad9596ac10ea90"
@@ -152,14 +127,24 @@
       "sha256": "38bd71da061c925e85c4b1665bdf4b5ef9f801ccaa90ecb7e0d0b92bd0896a32"
     },
     {
+      "path": "wallet/PRIVACY-DRAFT.md",
+      "bytes": 3620,
+      "sha256": "2701774c5223bc015c1dd2ccddf498b4d687a01063c91efb4303db039f575ffe"
+    },
+    {
       "path": "wallet/public/index.html",
-      "bytes": 26510,
-      "sha256": "650feca2368c1ba1c4a4ed73e1bc01c4533573b246092498fd27e44d0cfbb5b0"
+      "bytes": 26857,
+      "sha256": "c28ea5b8240a1626a7debd150bf70207fc73913105699e96a54a6e6f29145ca4"
     },
     {
       "path": "wallet/public/style.css",
-      "bytes": 5992,
-      "sha256": "c92e5d7338af34259a65ae95cd6a3fc19ed45d4f96ef63d5153628af3397507d"
+      "bytes": 6498,
+      "sha256": "68560bb1a5192dc1e93684344ec4863b2fd9219d909d6542df911b935079a2ab"
+    },
+    {
+      "path": "wallet/README.md",
+      "bytes": 20142,
+      "sha256": "3a30e047dab43c427a3d324c1ce70689a95263b835ddc7899a07923373d495a6"
     },
     {
       "path": "wallet/regtest-rpc.js",
@@ -247,6 +232,11 @@
       "sha256": "1d07524343343ff9e9cf1ab9c984cbfac913e0484e61075352ab3ffd9d4ceb99"
     },
     {
+      "path": "wallet/SECURITY-REVIEW-INTERNAL.md",
+      "bytes": 4953,
+      "sha256": "98a2a8eaab476acd55c720c64d8220ba7043673b87165a48f9aa1a372c6e8dc0"
+    },
+    {
       "path": "wallet/send-service.js",
       "bytes": 2917,
       "sha256": "687fc49f02ffffbe044ae961b92005d47240db038fe54ac54a679681e6debe99"
@@ -268,8 +258,8 @@
     },
     {
       "path": "wallet/src/app.js",
-      "bytes": 19736,
-      "sha256": "67b5d4cbff900d140ed3142a087607bbc99214d2cdb588e97b8bf3bd7b29170c"
+      "bytes": 19817,
+      "sha256": "580f04d3b445642ab534b8beb6f15ee48b3aaece03ffeb892a92dfb06d2cb12f"
     },
     {
       "path": "wallet/src/backup-name.js",
@@ -327,6 +317,11 @@
       "sha256": "bbd8642e50b8dc2c4db50ed937aa5d0faa7e325ab04abc2c08c6715bfef09ea5"
     },
     {
+      "path": "wallet/src/language.js",
+      "bytes": 4680,
+      "sha256": "0acf3a49ff8d153310c935d18a5d28195840af1915d3cea0ff8d49e750132bd0"
+    },
+    {
       "path": "wallet/src/lifecycle.js",
       "bytes": 1532,
       "sha256": "a0d1817bfa81a3bb9948aaaba972926f0ada45783b6d75288c8cbda7ab125a8c"
@@ -372,6 +367,16 @@
       "sha256": "3c90bc75cca4754b97fb773aae522d5a572991d5355b39df763fdc204c4892ca"
     },
     {
+      "path": "wallet/src/translations-en.js",
+      "bytes": 52562,
+      "sha256": "bb51bd9dc9a38bc40e42231fc9f87949fc37117fe0a0b68b86be65e403aa39da"
+    },
+    {
+      "path": "wallet/TERMS-DRAFT.md",
+      "bytes": 2890,
+      "sha256": "c63b852d7568f6b87946c0e4c54ac281a68fbbc01048dcf91bc4f8b10802ffc9"
+    },
+    {
       "path": "wallet/test/backup-copy.test.js",
       "bytes": 2694,
       "sha256": "7342c8a049b6be18350865591d334cfc212568de1acddb89434a51f9a56009c2"
@@ -412,6 +417,11 @@
       "sha256": "49e67222d6c164b2e0d4b83d95cbdf9cd7869ad33337679e09c94901bd3ebf40"
     },
     {
+      "path": "wallet/test/language.test.js",
+      "bytes": 4000,
+      "sha256": "7808f6a864ddb972b45aec3fd3c01f4de0a6eda522143ac6da84df6308d6997e"
+    },
+    {
       "path": "wallet/test/lifecycle.test.js",
       "bytes": 1836,
       "sha256": "30ea4105200d5120c9f75811a01b0e374c1a2e46914adb6cde1ea06e569a7a12"
@@ -443,8 +453,8 @@
     },
     {
       "path": "wallet/test/send-ui.test.js",
-      "bytes": 7814,
-      "sha256": "0aea0674d924ced6eff77a673163e3d056240eaed665f2b8ea3f95c056cea265"
+      "bytes": 7836,
+      "sha256": "510cd756f0793d5c4ff58e4b4b63382e50240dddc30b2d0faa0527e1c02d226d"
     },
     {
       "path": "wallet/test/send.test.js",
@@ -460,6 +470,11 @@
       "path": "wallet/test/wallet.test.js",
       "bytes": 9087,
       "sha256": "ab957f4efa4244d09e0287ed4880ec26f4e1f082bfad8caf36797038ac90dcb0"
+    },
+    {
+      "path": "wallet/THIRD-PARTY.md",
+      "bytes": 1390,
+      "sha256": "79046f6e8cf5e3ac2272c8b617bf3b71659e7bda37d3319ece8ff1c220857de5"
     }
   ],
   "publicationApproved": true

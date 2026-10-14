@@ -7,6 +7,7 @@
 </head>
 <body>
   <header><a class="brand" href="/" aria-label="BLOZ wallet, pagina iniziale">B<span>Ø</span>Z <small>WALLET LAB</small></a><span class="network">● Regtest · locale</span></header>
+  <div class="language-picker" hidden><label for="wallet-language">Lingua</label><select id="wallet-language" aria-label="Language / Lingua"><option value="en">English</option><option value="it">Italiano</option></select></div>
   <main>
     <div class="intro"><p class="eyebrow">IL CONTROLLO RESTA A TE</p><h1>Le tue chiavi.<br>Un recupero verificato.</h1><p>Un laboratorio locale per creare e recuperare un wallet BLOZ SegWit. Le chiavi vengono elaborate sul tuo dispositivo.</p></div>
     <aside class="test-banner"><strong>Solo test, nessun fondo reale.</strong> Ricezione e invio sulla sola regtest locale isolata. Firma sul dispositivo.</aside>
@@ -174,6 +175,7 @@
         <p>Proteggi dispositivo, browser ed eventuale account cloud. Un dispositivo o un sito compromesso può mettere a rischio il wallet anche se il codice è aperto. Il testo completo e i dati del gestore sono in preparazione prima della pubblicazione.</p>
       </details>
       <details><summary>Privacy e dati nel browser</summary>
+        <p>La lingua scelta viene conservata nel browser. Puoi cambiarla dal selettore senza modificare il wallet.</p>
         <p>Il browser conserva una copia cifrata del wallet e la connessione scelta, fino alla loro rimozione o alla cancellazione dei dati del sito. Conserva un backup esterno verificato prima di cancellarli. Non usiamo strumenti pubblicitari o di profilazione; Cloudflare può usare strumenti tecnici per proteggere il sito.</p>
         <p>I nodi scelti possono associare l’IP alle richieste pubbliche del wallet. I nodi Pinco Labs sono facoltativi: la copia locale permette profili Electrum BLOZ personalizzati o il collegamento RPC al proprio Core. Chiavi private e password non vengono inviate ai nodi.</p>
         <p>Il sito pubblico usa Cloudflare; le connessioni Electrum sono dirette. I nuovi log applicativi dei nostri nodi conservano avvisi ed errori per circa 24 ore con rotazione oraria; i log di sistema e precedenti seguono politiche separate. Non garantiamo anonimato completo. I dettagli sono in revisione prima della pubblicazione.</p>

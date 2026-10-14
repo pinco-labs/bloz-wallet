@@ -1,3 +1,4 @@
+import { installLanguage } from './language.js';
 import { installConnections } from './connection-ui.js';
 import { allowedWalletOrigin } from './origin-policy.js';
 import { renderHistory } from './history-view.js';
@@ -15,6 +16,7 @@ import { agreedSnapshot, electrumFees, electrumBroadcast } from './electrum-wall
 
 const $ = (id) => document.getElementById(id);
 const mainnet = typeof __BLOZ_MAINNET__ !== 'undefined' && __BLOZ_MAINNET__;
+if (mainnet) installLanguage();
 const electrum = typeof __BLOZ_ELECTRUM__ !== 'undefined' && __BLOZ_ELECTRUM__;
 const network = mainnet ? 'bloz-mainnet' : 'bloz-regtest';
 const STORAGE_KEY = mainnet ? MAINNET_STORAGE_KEY : REGTEST_STORAGE_KEY;

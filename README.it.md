@@ -4,6 +4,10 @@
 
 Realizzato da Pinco Labs come contributo alla community BLOZ.
 
+Interfaccia mainnet disponibile in **italiano e inglese**, con selettore in alto.
+La preferenza resta nel browser; cambiare lingua non modifica il wallet e non
+ricarica la pagina. Per le altre lingue del browser viene usato l’inglese.
+
 Wallet SegWit non custodial, versione sperimentale per revisione. Chiavi e
 password restano sul dispositivo; la firma avviene nel browser.
 

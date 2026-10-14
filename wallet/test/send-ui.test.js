@@ -23,7 +23,7 @@ async function harness(failBroadcast = false, overrides = {}) {
     withKey(fn) { return fn('fake-key'); }
   }
   const context = vm.createContext({
-    __BLOZ_MAINNET__: true, WalletSession: Session, localStorage: {}, installPasswordChange, renderPasswordChange, allowedWalletOrigin,
+    __BLOZ_MAINNET__: true, WalletSession: Session, localStorage: {}, installLanguage() {}, installPasswordChange, renderPasswordChange, allowedWalletOrigin,
     REGTEST_STORAGE_KEY: 'test', MAINNET_STORAGE_KEY: 'main', MAX_BACKUP_BYTES: 8192,
     createKeyCodec: () => ({ recoveryDescriptor() {} }), renderBackupPanel() {},
     installLifecycle: () => ({ activity() {} }), formatBloz: String,

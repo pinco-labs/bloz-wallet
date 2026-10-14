@@ -10,6 +10,12 @@ Private keys and passwords stay on your device. Transactions are signed in
 your browser. Pinco Labs does not hold your funds and cannot recover lost
 passwords or backups.
 
+The mainnet wallet interface is available in **English and Italian**, including
+backup instructions, errors and transfer reviews. Use the language selector at
+the top of the page. Your preference is stored locally; switching languages
+does not change your wallet or reload the page. Other browser languages default
+to English.
+
 ## Run locally
 
 For regular use, we encourage running your own copy, preferably with your own
