@@ -1,5 +1,5 @@
 {
-  "id": "973fbd31f9bcc39fb4d787a0fba77a05b6ad3ae762a1a874ecae6ce5e6085fb2",
+  "id": "84d94fef74f2f70c2b0e1fc6391fa01d6cdc564e9a72bc8a42abc45e03a391ef",
   "files": [
     {
       "path": "wallet/.gitignore",
@@ -64,7 +64,7 @@
     {
       "path": "wallet/build-mainnet.js",
       "bytes": 6044,
-      "sha256": "ab0d69c6ebb91d2faf5a30615e35f936e0153c6a7803c43eb60e446a8531741f"
+      "sha256": "5d129ed9081b4dea9fa37beeeb1533271cbc2fb58df4d3a71d9898bead277fa0"
     },
     {
       "path": "wallet/build.js",
@@ -243,8 +243,8 @@
     },
     {
       "path": "wallet/scripts/verify-public.mjs",
-      "bytes": 1568,
-      "sha256": "c9a12d0b1596f81e7532515eea1bc02da825e84fcf510433e24762c590537aef"
+      "bytes": 1778,
+      "sha256": "1d07524343343ff9e9cf1ab9c984cbfac913e0484e61075352ab3ffd9d4ceb99"
     },
     {
       "path": "wallet/send-service.js",
@@ -462,5 +462,5 @@
       "sha256": "ab957f4efa4244d09e0287ed4880ec26f4e1f082bfad8caf36797038ac90dcb0"
     }
   ],
-  "publicationApproved": false
+  "publicationApproved": true
 }

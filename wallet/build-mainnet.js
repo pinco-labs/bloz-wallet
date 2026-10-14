@@ -4,11 +4,6 @@ import { fileURLToPath } from 'node:url';
 const publicBuild = process.argv.includes('--public');
 const publicOrigin = publicBuild ? process.argv[process.argv.indexOf('--public') + 1] : '';
 if (publicBuild) {
-  const commit = process.env.BLOZ_SOURCE_COMMIT;
-  if (!/^[a-f0-9]{40}$/.test(commit ?? '')) throw new Error('BLOZ_SOURCE_COMMIT deve identificare il sorgente pubblicato.');
-  html = html.replace('id="source-link" href="https://github.com/pinco-labs/bloz-wallet"', `id="source-link" href="https://github.com/pinco-labs/bloz-wallet/tree/${commit}"`);
-  html = html.replace('<meta charset="utf-8">', '<meta name="robots" content="noindex, nofollow"><meta charset="utf-8">');
-  html = html.replace('Un wallet locale BLOZ SegWit per una prova privata su mainnet.', 'Un wallet BLOZ SegWit sperimentale su mainnet.');
   const url = new URL(publicOrigin);
   if (url.protocol !== 'https:' || url.origin !== publicOrigin || url.username || url.password) throw new Error('Specificare una origine HTTPS esatta senza percorso o credenziali.');
 }
@@ -42,6 +37,11 @@ if (electrum) html = html.replace('MAINNET PRIVATA', 'ELECTRUM · PROVA PRIVATA'
   .replace('Gli accrediti devono essere confermati. Per spendere output storici serve anche il relativo blocco, che potrebbe non essere più disponibile sul nodo con spazio limitato.', 'Gli accrediti devono essere confermati. I due server devono concordare. Le prove delle transazioni vengono controllate rispetto agli header forniti dai server: questa versione non verifica autonomamente tutta la catena Proof of Work. Limite della prova: 100 transazioni per indirizzo.')
   .replace('<section aria-label="Invio mainnet">', '<details><summary>Storico transazioni</summary><ul id="history-list" class="utxo-list"></ul></details><section aria-label="Invio mainnet">');
 if (publicBuild) {
+  const commit = process.env.BLOZ_SOURCE_COMMIT;
+  if (!/^[a-f0-9]{40}$/.test(commit ?? '')) throw new Error('BLOZ_SOURCE_COMMIT deve identificare il sorgente pubblicato.');
+  html = html.replace('id="source-link" href="https://github.com/pinco-labs/bloz-wallet"', `id="source-link" href="https://github.com/pinco-labs/bloz-wallet/tree/${commit}"`);
+  html = html.replace('<meta charset="utf-8">', '<meta name="robots" content="noindex, nofollow"><meta charset="utf-8">');
+  html = html.replace('Un wallet locale BLOZ SegWit per una prova privata su mainnet.', 'Un wallet BLOZ SegWit sperimentale su mainnet.');
   html = html.replaceAll('MAINNET PRIVATA','MAINNET SPERIMENTALE').replaceAll('Mainnet privata','Mainnet sperimentale').replaceAll('PROVA PRIVATA','VERSIONE SPERIMENTALE').replaceAll('Prova privata su mainnet.','Versione sperimentale su mainnet.');
   html = html.replace('Per aggiungere server alla tua copia locale,', 'Questa versione pubblica usa solo i server predefiniti. Per aggiungere server alla tua copia locale,');
 }

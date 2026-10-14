@@ -15,7 +15,9 @@ assert.deepEqual(JSON.parse(await readFile(new URL('connections.json',dir),'utf8
 const html=await readFile(new URL('index.html',dir),'utf8');
 assert.ok(!/<script(?![^>]*\bsrc=)[^>]*>/i.test(html));
 assert.ok(!/\son[a-z]+\s*=/i.test(html));
-assert.ok(!/\b(?:src|href)=["'](?:https?:)?\/\//i.test(html));
+assert.ok(!/<(?:script|link|img|iframe)[^>]*\b(?:src|href)=["'](?:https?:)?\/\//i.test(html));
+assert.match(html, /id="source-link" href="https:\/\/github.com\/pinco-labs\/bloz-wallet\/tree\/[a-f0-9]{40}"/);
+assert.match(html, /name="robots" content="noindex, nofollow"/);
 const headers=await readFile(new URL('_headers',dir),'utf8');
 assert.ok(!headers.includes('unsafe-inline')&&!headers.includes('unsafe-eval'));
 for(const required of ["frame-ancestors 'none'","object-src 'none'",'no-store','nosniff','Strict-Transport-Security'])assert.ok(headers.includes(required));
