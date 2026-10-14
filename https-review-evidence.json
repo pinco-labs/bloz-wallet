@@ -1,7 +1,7 @@
 {
-  "at": "2026-10-14T11:54:23.044Z",
-  "artifactId": "40ba892007db8262f59d5f077cfa448dd8b252eb6e2c51a746249ba8ca9df940",
-  "sourceCommit": "a98a7839e852dd9e78fadb5bb7a33a238df52a8e",
+  "at": "2026-10-14T16:31:48.124Z",
+  "artifactId": "f8f8285b01b54b5353bb32b8502e0ad60c0731d59d8a9fbaace2e2e1abf306f3",
+  "sourceCommit": "14a87bcb9447aa9e26522a3a37a7c52dd29c3a27",
   "results": [
     {
       "file": "index.html",
@@ -119,6 +119,6 @@
   ],
   "explorer": {
     "status": 200,
-    "hasWalletLink": false
+    "hasWalletLink": true
   }
 }

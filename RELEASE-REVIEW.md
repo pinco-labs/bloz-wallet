@@ -101,3 +101,25 @@ Nessun nuovo difetto emerso da queste prove. Via libera tecnico alla versione
 sperimentale esaminata, nei limiti documentati della revisione interna.
 Collegamento dall'explorer e annuncio restano in attesa dell'approvazione
 finale del progetto. Nessuna modifica al codice o all'artefatto.
+
+## Distribuzione bilingue italiana/inglese — 14 ottobre 2026
+
+Versione applicativa corrente: 14a87bcb9447aa9e26522a3a37a7c52dd29c3a27.
+Artefatto corrente: f8f8285b01b54b5353bb32b8502e0ad60c0731d59d8a9fbaace2e2e1abf306f3.
+
+Interfaccia mainnet italiana/inglese con selettore e preferenza locale.
+Tradotte istruzioni, etichette accessibili, errori espliciti e riepiloghi
+con importi e identificativi conservati. Cifratura, firma e formato backup
+invariati. Nessuna dipendenza aggiunta; CSP e intestazioni invariate.
+
+71 test superati nel pacchetto isolato. Cinque test nuovi coprono selezione
+lingua, stringhe statiche, errori, placeholder e valori del riepilogo.
+Browser integrato: cambio IT/EN con indirizzo usa e getta invariato,
+messaggi dinamici e persistenza della preferenza verificati in anteprima.
+Sul dominio pubblico: entrambe le lingue e impaginazione inglese verificate.
+Il test manuale precedente in Chrome resta documentato sopra; non è stato
+ripetuto un trasferimento finanziato per questa modifica di presentazione.
+
+Confronto HTTPS dei cinque file riuscito, redirect 301 e percorsi riservati
+404. Nessun Set-Cookie o NEL nelle risposte campionate. L'explorer mantiene
+il collegamento al wallet già autorizzato. Sorgenti bilingui pubblicati.
