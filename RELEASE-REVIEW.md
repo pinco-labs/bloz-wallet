@@ -48,3 +48,37 @@ Commit applicativo corrente: a98a7839e852dd9e78fadb5bb7a33a238df52a8e.
 Artefatto corrente: 40ba892007db8262f59d5f077cfa448dd8b252eb6e2c51a746249ba8ca9df940.
 Controlli statici e confronto hash HTTPS ripetuti e superati. Nessuna modifica
 alla logica del wallet; restano validi i limiti del collaudo browser sopra.
+
+## Chiusura della revisione tecnica interna
+
+Riesame del 14 ottobre 2026 sul commit applicativo
+`a98a7839e852dd9e78fadb5bb7a33a238df52a8e` e sull'artefatto
+`40ba892007db8262f59d5f077cfa448dd8b252eb6e2c51a746249ba8ca9df940`.
+I file sorgente del workspace sottoposto ai test coincidono con quelli
+nel pacchetto isolato pubblicato (confronto SHA-256).
+
+Riletti i flussi di sessione e blocco, cifratura e verifica dei backup,
+cambio password, recupero chiave, firma e invio, validazione Electrum,
+selezione connessioni, server loopback e bridge RPC. Non sono emerse nuove
+vulnerabilità confermate in questo riesame. Non equivale a una prova di
+assenza di vulnerabilità né a un audit indipendente.
+
+Ripetuti: cinque build e 66 test, tutti superati. Il primo tentativo dei
+test HTTP è stato impedito dalla sandbox (EACCES su loopback); la ripetizione
+con accesso al loopback ha superato tutti i test. npm audit riporta zero
+vulnerabilità note alla data della verifica, senza attestare la sicurezza
+intrinseca delle dipendenze. Nessuna transazione mainnet effettuata.
+
+Ripetuto anche il confronto HTTPS dei cinque file distribuiti: tutti
+corrispondono al manifest. Redirect 301, percorsi non pubblici 404,
+nessun Set-Cookie o NEL osservato. Evidenza aggiornata in
+`https-review-evidence.json`. Nessun link wallet nell'explorer.
+
+La parte di riesame del codice e verifica tecnica della distribuzione è
+conclusa per questa versione. Resta aperta l'accettazione end-to-end in
+Chrome sul dominio pubblico: creazione con chiave usa e getta, download e
+rilettura del backup, blocco/ripristino e verifica autonoma della copia.
+Il precedente timeout dell'automazione non consente di attestare questo
+passaggio. Nessun via libera definitivo all'annuncio finché questo controllo
+e la revisione dell'utente non sono conclusi. Restano validi gli altri limiti
+elencati nel rapporto interno e in questo documento.
