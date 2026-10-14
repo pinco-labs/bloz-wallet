@@ -1,0 +1,36 @@
+{
+  "name": "bloz-wallet-local-prototype",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "build:demo": "node build-demo.js",
+    "demo": "node demo-server.js",
+    "start": "node server.js",
+    "regtest": "node scripts/regtest-node.js",
+    "fund": "node scripts/fund-regtest.js",
+    "pretest": "node build.js && node build-demo.js && node build-mainnet-offline.js && node build-mainnet.js && node build-mainnet.js --electrum",
+    "build:mainnet": "node build-mainnet.js",
+    "mainnet": "node mainnet-server.js",
+    "build:mainnet-offline": "node build-mainnet-offline.js",
+    "mainnet-offline": "node mainnet-offline-server.js",
+    "test": "node --test test/*.test.js",
+    "check:mainnet-offline": "node scripts/mainnet-offline-check.js",
+    "build:electrum": "node build-mainnet.js --electrum",
+    "electrum": "node electrum-server.js"
+  },
+  "dependencies": {
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "@scure/base": "2.4.0",
+    "@scure/btc-signer": "2.4.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "repository": "https://github.com/Rexemre/blockzero-core",
+  "commit": "a636f6285a7fd4c51b820f39e8d3e1ee65db277d",
+  "release": "v1.0.0-rc38",
+  "verifiedDate": "2026-10-13",
+  "files": [
+    {
+      "path": "src/kernel/chainparams.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/kernel/chainparams.cpp",
+      "sha256": "f6274ddc38273baf50b19200afb6c1f5559633a5fb523a281205df35c25e299c"
+    },
+    {
+      "path": "src/key_io.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/key_io.cpp",
+      "sha256": "342f3572b901c9ca62191680d8f031d6f338719af5ff99a89d3270420ec663e9"
+    },
+    {
+      "path": "src/key.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/key.cpp",
+      "sha256": "971455dfb2f156ed3c478d4c6ec40d8dde966257e80ab652fe3a4bf04227190b"
+    },
+    {
+      "path": "src/wallet/rpc/backup.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/wallet/rpc/backup.cpp",
+      "sha256": "b446f7d31a8aba71b754852bbe6ec30a1d98e1f9bf66965feb1755b038d8e773"
+    },
+    {
+      "path": "src/script/descriptor.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/script/descriptor.cpp",
+      "sha256": "9fe652a4a8f91068ead31125eb8f41b733299a77fce71741cc2c6ad88c7123ac"
+    },
+    {
+      "path": "test/functional/test_framework/key.py",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/test/functional/test_framework/key.py",
+      "sha256": "1f48819cbecacb5916a32a4930b4576ab362c190fa552342378e5c809a6bae77"
+    },
+    {
+      "path": "test/functional/test_framework/address.py",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/test/functional/test_framework/address.py",
+      "sha256": "63e83cdd2054afbccff8932729dc65cf8feafc8ce3bd9b0071d492058d12bf4f"
+    },
+    {
+      "path": "test/functional/test_framework/descriptors.py",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/test/functional/test_framework/descriptors.py",
+      "sha256": "8c2a4490c1b2a09c6c6e209eda090b160214d8156e20d6db671459cb4090a16a"
+    },
+    {
+      "path": "src/script/interpreter.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/script/interpreter.cpp",
+      "sha256": "858d409164ac071eb1ec038330b8c1dca43f5e9edd9f6092e49895258c7edb56"
+    },
+    {
+      "path": "src/rpc/rawtransaction.cpp",
+      "url": "https://github.com/Rexemre/blockzero-core/blob/a636f6285a7fd4c51b820f39e8d3e1ee65db277d/src/rpc/rawtransaction.cpp",
+      "sha256": "0a194a80ad3043ac4ae69239fcc576ea93d34a5e0f8e170429454255b32c419b"
+    }
+  ],
+  "testLinuxBinary": {
+    "url": "https://github.com/Rexemre/blockzero-core/releases/download/v1.0.0-rc38/blockzero-v1.0.0-rc38-linux-x64.tar.gz",
+    "sha256": "5013e9c41cb2167a64013109c05daa4cd7368a9c0e95b968e1bea04a91fdd93c",
+    "executableSha256": "60bc037f5b5241da35bf4676aaa94c1fe0314d7d227f9d0f6e602c8101eda01f",
+    "environment": "WSL Ubuntu-24.04",
+    "installedDirectory": "$HOME/.local/opt/bloz-cli-v1.0.0-rc38"
+  },
+  "testBinary": {
+    "url": "https://github.com/Rexemre/blockzero-core/releases/download/v1.0.0-rc38/blockzero-v1.0.0-rc38-windows-x64-cli.zip",
+    "sha256": "09384410dfc1fed2a06a240f5bd1bfc9c3dd3b775d8a191ae6cebb72439bdd62",
+    "executableSha256": "7dd0ab79ca18701b419c9fe3b2b5fda0060aded29fbaaa807e7361b8dc88ee1e"
+  }
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLOZ · Wallet di prova</title><link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header><a class="brand" href="/" aria-label="BLOZ wallet, pagina iniziale">B<span>Ø</span>Z <small>WALLET LAB</small></a><span class="network">● Regtest · locale</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow">IL CONTROLLO RESTA A TE</p><h1>Le tue chiavi.<br>Un recupero verificato.</h1><p>Un laboratorio locale per creare e recuperare un wallet BLOZ SegWit. Le chiavi vengono elaborate sul tuo dispositivo.</p></div>
+    <aside class="test-banner"><strong>Solo test, nessun fondo reale.</strong> Ricezione e invio sulla sola regtest locale isolata. Firma sul dispositivo.</aside>
+    <section class="custody-note" aria-label="Custodia delle chiavi">
+      <h2>Non custodial: il wallet è sotto il tuo controllo</h2>
+      <p><strong>Pinco Labs non custodisce i tuoi fondi.</strong> Chiavi private e password del backup vengono elaborate sul tuo dispositivo e non sono inviate a Pinco Labs o ai nodi. La firma delle transazioni avviene nel browser; ai nodi vengono inviate solo le richieste pubbliche necessarie e le transazioni già firmate.</p>
+      <p>Nella modalità Electrum, le connessioni ai server sono cifrate tramite WSS. In alternativa, nella copia locale puoi usare il tuo nodo BLOZ Core tramite il collegamento RPC locale. I nodi Pinco Labs sono facoltativi.</p>
+      <p>Non possiamo recuperare la tua password o sostituire un backup perso. Conserva il file cifrato e la sua password: servono entrambi per il recupero.</p>
+      <details><summary>Vuoi avviarlo sul tuo PC? Guida semplice</summary>
+        <p>Per l’uso abituale consigliamo la copia locale, possibilmente collegata al tuo nodo BLOZ Core via RPC oppure a server Electrum gestiti da te. Puoi scegliere quando aggiornare il codice e a quali nodi affidare le letture della blockchain. La versione web resta una soluzione comoda quando ne hai bisogno; in entrambe le modalità chiavi e firma restano nel browser. Scarica i <a href="https://github.com/pinco-labs/bloz-wallet">sorgenti ufficiali su GitHub</a> e segui questi passaggi.</p>
+        <ol>
+          <li>Installa Node.js 24 LTS. Scarica da GitHub la versione indicata da Pinco Labs ed estrai lo ZIP.</li>
+          <li>Apri un terminale nella cartella estratta che contiene la sottocartella <code>wallet</code>.</li>
+          <li>Esegui <code>npm ci --prefix wallet</code> per installare le dipendenze della versione scaricata.</li>
+          <li>Esegui <code>npm run build:electrum --prefix wallet</code>, poi <code>npm run electrum --prefix wallet</code>.</li>
+          <li>Lascia aperto il terminale e apri <code>http://127.0.0.1:8091/</code> nel browser. Per fermare il servizio premi Ctrl+C nel terminale.</li>
+        </ol>
+        <p>In locale non significa offline: saldo e invio richiedono i nodi Electrum oppure il tuo nodo BLOZ configurato. Il wallet sul sito e quello locale hanno archivi separati nel browser: per passare da uno all’altro usa il backup cifrato. Non aprire index.html con un doppio clic.</p>
+        <p>La custodia locale non protegge da malware o estensioni invasive. Mantieni aggiornati sistema e browser e verifica la provenienza del codice che esegui.</p>
+      </details>
+    </section>
+    <noscript>Abilitare JavaScript per usare il prototipo locale.</noscript>
+    <p id="message" role="status" aria-live="polite">Caricamento…</p>
+    <div class="layout">
+      <section class="workspace" aria-label="Configurazione wallet">
+        <div id="start-panel" hidden>
+          <div class="step-heading"><span class="number">01</span><div><p class="eyebrow">INIZIA QUI</p><h2>Crea o ripristina</h2></div></div>
+          <p>Un solo indirizzo SegWit nativo. Nessun account e nessuna frase seed in questo prototipo.</p>
+          <details><summary>Come viene generata la chiave?</summary><p>L’entropia misura l’imprevedibilità dei dati casuali. Per creare la chiave usiamo Web Crypto, il generatore di casualità crittografica del browser, direttamente sul tuo dispositivo. La password serve a cifrare il backup e non determina la chiave.</p></details>
+          <button id="create" class="primary">Crea wallet di test <span>→</span></button>
+          <div class="divider">oppure recupera il tuo wallet di test</div>
+          <form id="restore-form">
+            <label for="restore-file">Backup cifrato (.json)</label><input id="restore-file" type="file" accept=".json,application/json" required>
+            <label for="restore-password">Password del backup</label><input id="restore-password" type="password" autocomplete="off" required maxlength="1024">
+            <button type="submit">Ripristina dal file</button>
+          </form>
+          <details><summary>Importa una chiave WIF di test</summary><p>Solo chiavi di test compresse. WIF non distingue regtest da altre reti di test: verifica sempre la provenienza. Le chiavi mainnet vengono rifiutate.</p>
+            <form id="wif-form"><label for="wif">WIF di test</label><input id="wif" type="password" autocomplete="off" spellcheck="false" required><button type="submit">Importa come SegWit</button></form>
+          </details>
+        </div>
+        <div id="setup-panel" hidden>
+          <div id="restore-success" hidden><div class="step-heading"><span class="number">✓</span><div><p class="eyebrow">FILE VERIFICATO</p><h2>Ripristino riuscito</h2></div></div><p>Il file è stato decifrato e verificato. Puoi attivare il wallet senza creare un nuovo backup: verrà conservata nel browser la stessa copia cifrata, con la stessa password. Potrai scaricarne un’altra copia da Backup e recupero.</p></div>
+          <details id="backup-section" class="backup-section" open><summary id="backup-summary" hidden>Prepara il backup per completare l’attivazione</summary>
+          <div class="step-heading"><span class="number">02</span><div><p class="eyebrow">METTI AL SICURO IL RECUPERO</p><h2>Scarica il backup cifrato</h2></div></div>
+          <p>Scegli una password lunga e unica, di almeno 12 caratteri: una frase composta da più parole casuali e non collegate può essere facile da ricordare senza essere facile da indovinare. Evita citazioni famose, dati personali e password già usate altrove.</p>
+          <p>Conserva almeno due copie del backup JSON cifrato su supporti diversi, per esempio una in una cartella del PC e una su una chiavetta USB. Custodiscile in luoghi fisicamente separati, così un furto, incendio o guasto non coinvolga entrambe. Aggiungi una copia del solo file cifrato su un servizio cloud, proteggendo l’account con l’autenticazione a due fattori.</p>
+          <p>La copia nel browser è una comodità e può essere cancellata: non sostituisce i backup esterni. Conserva la password al sicuro, separata dai file, senza affidarti soltanto alla memoria. Per recuperare servono sia il file sia la password; non possiamo reimpostarla. Verifica periodicamente che le copie siano leggibili: più copie riducono il rischio di perdita, senza garantire il recupero in ogni situazione.</p>
+          <form id="backup-form"><label for="backup-password">Nuova password (minimo 12 caratteri)</label><input id="backup-password" type="password" autocomplete="new-password" minlength="12" maxlength="1024" required>
+            <label for="backup-confirm">Conferma password (minimo 12 caratteri)</label><input id="backup-confirm" type="password" autocomplete="new-password" minlength="12" maxlength="1024" required><button id="backup-download" type="submit" class="primary">Cifra e scarica il backup</button></form>
+          </details>
+          <div id="verify-panel" hidden>
+            <div class="step-heading verification"><span class="number">03</span><div><p class="eyebrow">PROVA IL RECUPERO</p><h2>Riapri il file scaricato</h2></div></div>
+            <p>Seleziona il file appena salvato e reinserisci la password. Verifichiamo che ricostruisca lo stesso indirizzo.</p>
+            <form id="verify-form"><label for="verify-file">File da verificare</label><input id="verify-file" type="file" accept=".json,application/json" required>
+              <label for="verify-password">Password del file</label><input id="verify-password" type="password" autocomplete="off" maxlength="1024" aria-describedby="verify-feedback" required><p id="verify-feedback" class="form-feedback" role="alert" aria-atomic="true"></p><button id="verify-backup" type="submit">Verifica recupero</button></form>
+          </div>
+          <button id="activate" class="primary" disabled>Attiva wallet di test</button>
+          <button id="cancel" class="quiet">Annulla e cancella la sessione</button>
+        </div>
+        <div id="locked-panel" hidden>
+          <div class="step-heading"><span class="number">↗</span><div><p class="eyebrow">COPIA CIFRATA LOCALE</p><h2>Il wallet è bloccato</h2></div></div>
+          <p>Inserisci la password per aprire la copia cifrata conservata in questo browser.</p>
+          <form id="unlock-form"><label for="unlock-password">Password</label><input id="unlock-password" type="password" autocomplete="off" maxlength="1024" required><button type="submit" class="primary">Sblocca wallet</button></form>
+          <button id="saved-download">Scarica un’altra copia — stessa password</button>
+        </div>
+        <div id="active-panel" hidden>
+          <div class="step-heading"><span class="number">✓</span><div><p class="eyebrow">RECUPERO VERIFICATO</p><h2>Wallet di test attivo</h2></div></div>
+          <p>Il backup è stato decifrato e confrontato con questo wallet prima dell’attivazione. Conserva almeno due copie esterne del JSON cifrato, su supporti diversi e in luoghi separati, più una copia cloud. Custodisci la password separatamente.</p>
+          <div class="fact"><span>Tipo di indirizzo</span><strong>SegWit nativo · P2WPKH</strong></div>
+          <button id="lock" class="primary">Blocca wallet</button>
+          <details><summary>Backup e recupero</summary><p>Puoi scaricare di nuovo una copia del backup cifrato salvato in questo browser. La password resta quella scelta per questo backup.</p><p>Conserva almeno due copie del JSON cifrato su supporti diversi: per esempio PC e chiavetta USB, custoditi in luoghi fisicamente separati. Aggiungi una copia del solo file cifrato su un servizio cloud con autenticazione a due fattori. La copia nel browser può essere cancellata e non sostituisce queste copie.</p><p>Tieni la password al sicuro, separata dai file, e verifica periodicamente che le copie siano leggibili. Per il recupero servono file e password: non possiamo reimpostarla. Questa precauzione riduce il rischio di perdita anche in caso di furto o calamità, ma non offre una garanzia assoluta.</p><button id="active-saved-download">Scarica un’altra copia — stessa password</button></details>
+
+          <details id="check-copy-details"><summary>Verifica una copia di backup</summary>
+            <p>Seleziona una copia JSON e inserisci la password di quel file, anche se è una vecchia password. Il controllo avviene sul dispositivo e confronta l’indirizzo recuperato con il wallet aperto. Non sostituisce il wallet e non cambia password o backup.</p>
+            <form id="check-copy-form"><label for="check-copy-file">Copia da verificare</label><input id="check-copy-file" type="file" accept=".json,application/json" required>
+              <label for="check-copy-password">Password di questa copia</label><input id="check-copy-password" type="password" autocomplete="off" maxlength="1024" required aria-describedby="check-copy-feedback">
+              <button id="check-copy-button" type="submit">Verifica questa copia</button><p id="check-copy-feedback" class="form-feedback" role="alert" aria-atomic="true"></p>
+            </form>
+          </details>
+          <details id="change-details"><summary>Cambia password</summary>
+            <p>Crei un nuovo file cifrato dello stesso wallet: indirizzo e fondi non cambiano. Prima scarichi e verifichi il nuovo file, poi confermi il cambio della password in questo browser.</p>
+            <p><strong>I vecchi file restano validi con la vecchia password.</strong> Il cambio non li aggiorna e non li revoca. Se qualcuno ha già il vecchio file e la sua password, può ancora accedere al wallet: in quel caso occorre un nuovo wallet e trasferire i fondi.</p>
+            <p>Conserva le copie in cartelle riconoscibili e registra quale password appartiene a ciascun backup, tenendo la password separata dal file. Non cancellare le vecchie copie prima di avere verificato quelle nuove.</p>
+            <form id="change-password-form">
+              <label for="change-current">Password attuale della copia nel browser</label><input id="change-current" type="password" autocomplete="off" maxlength="1024" required>
+              <label for="change-new">Nuova password · minimo 12 caratteri</label><input id="change-new" type="password" autocomplete="off" minlength="12" maxlength="1024" placeholder="Minimo 12 caratteri" required>
+              <label for="change-confirm">Ripeti la nuova password</label><input id="change-confirm" type="password" autocomplete="off" minlength="12" maxlength="1024" required>
+              <button id="change-prepare" type="submit">1. Cifra e scarica il nuovo backup</button>
+            </form>
+            <form id="change-verify-form" hidden>
+              <label for="change-file">Seleziona il nuovo file appena scaricato</label><input id="change-file" type="file" accept=".json,application/json" required>
+              <label for="change-verify-password">Nuova password del file</label><input id="change-verify-password" type="password" autocomplete="off" maxlength="1024" required>
+              <button id="change-verify" type="submit">2. Verifica il nuovo backup</button>
+            </form>
+            <p id="change-feedback" role="status" aria-live="polite"></p>
+            <button id="change-commit" hidden>3. Conferma cambio password</button>
+            <button id="change-cancel" hidden>Annulla cambio password</button>
+          </details>
+          <section aria-label="Ricezione e saldo regtest">
+            <h3>Ricevi monete di prova</h3>
+            <p>Condividi solo l’indirizzo SegWit. Per il saldo viene comunicato al servizio locale esclusivamente l’indirizzo pubblico.</p>
+            <button id="copy-address">Copia indirizzo di test</button>
+            <button id="refresh-balance">Aggiorna saldo locale</button>
+            <p class="small">Aggiornamento automatico ogni 30 secondi mentre il wallet è sbloccato e la pagina è visibile. Sospeso durante preparazione e invio.</p>
+            <p id="balance-status" role="status">Saldo non ancora letto.</p>
+            <div class="fact"><span>Disponibili (stima)</span><strong id="available-balance">—</strong></div>
+            <div class="fact"><span>Confermati maturi</span><strong id="confirmed-balance">—</strong></div>
+            <div class="fact"><span>Ricompense immature</span><strong id="immature-balance">—</strong></div>
+            <div class="fact"><span>In arrivo, non confermati</span><strong id="pending-balance">—</strong></div>
+            <div class="fact"><span>Impegnati in mempool</span><strong id="reserved-balance">—</strong></div>
+            <p>Le ricompense di mining richiedono 100 conferme per essere candidate alla spesa nel blocco successivo. Gli importi non confermati non sono inclusi nei disponibili. Questa è una stima UTXO, non una verifica completa di spendibilità.</p>
+            <details><summary>Accrediti non spesi</summary><p id="utxo-summary">Aggiorna il saldo per consultarli.</p><ul id="utxo-list" class="utxo-list"></ul></details>
+          </section>
+          <section aria-label="Invio regtest">
+            <h3>Invia monete di prova</h3>
+            <p>Solo indirizzi bzrt1q. In questa prova viene speso un singolo accredito confermato; il resto torna al tuo indirizzo.</p>
+            <form id="send-form">
+              <label for="send-to">Indirizzo destinatario di test</label><input id="send-to" type="text" spellcheck="false" autocomplete="off" required>
+              <label for="send-amount">Importo BLOZ (punto decimale)</label><input id="send-amount" type="text" inputmode="decimal" required>
+              <label for="send-fee">Commissione totale BLOZ</label><input id="send-fee" type="text" inputmode="decimal" value="0.00001000" required>
+              <button id="send-prepare" type="submit" disabled>Prepara riepilogo</button>
+            </form>
+            <div id="send-review" hidden><p id="send-summary"></p><p>La conferma firma localmente e trasmette al nodo solo la transazione firmata. Il riepilogo scade dopo un minuto.</p><button id="send-confirm" class="primary">Conferma e invia sulla regtest</button><button id="send-cancel">Annulla invio</button></div>
+            <p id="send-result" role="status"></p>
+          </section>
+          <details id="recovery-details"><summary>Recupero nel wallet ufficiale (solo test)</summary>
+            <p>Il descrittore contiene la chiave privata. Mostralo solo per una prova locale con BLOZ Core avviato in regtest. Non inviarlo a siti o servizi.</p>
+            <p>Chi possiede questi dati può spendere i fondi senza la password del backup. Non inviarli a siti, chat o assistenza. Per lo stesso indirizzo SegWit preferisci il descrittore: la sola WIF non specifica il tipo di indirizzo. Non modificare direttamente wallet.dat.</p>
+            <form id="recovery-form"><label for="recovery-password">Password attuale per mostrare i dati privati</label><input id="recovery-password" type="password" autocomplete="off" maxlength="1024" required><button id="show-recovery" type="submit">Mostra chiave e descrittore privati</button></form>
+            <label for="recovery-wif">Chiave privata WIF</label><textarea id="recovery-wif" readonly rows="2" spellcheck="false"></textarea>
+            <label for="recovery">Descrittore SegWit per importdescriptors</label><textarea id="recovery" readonly rows="4" spellcheck="false"></textarea>
+            <p>Importare con timestamp 0 e active false. Il file cifrato di questo prototipo non è un wallet.dat e non è importabile direttamente in Core.</p>
+            <p>La password di questo backup serve a decifrare il file nel web wallet. BLOZ Core usa un proprio wallet e una password di cifratura separata: la password del backup web non viene trasferita a Core. Il recupero compatibile riguarda la chiave privata e lo stesso indirizzo, tramite il descrittore.</p>
+          </details>
+        </div>
+        <div id="forget-panel" hidden><details><summary>Rimuovi la copia da questo browser</summary><p>Il file esterno e la relativa password saranno necessari per recuperarla.</p><label class="check"><input id="forget-check" type="checkbox"> Ho il backup esterno e voglio rimuovere la copia locale.</label><button id="forget" class="danger" disabled>Rimuovi copia locale</button></details></div>
+      </section>
+      <aside class="side"><div class="identity-card"><p class="eyebrow">IL TUO INDIRIZZO DI TEST</p><h3>SegWit, dall’inizio.</h3><p id="address-placeholder">L’indirizzo comparirà quando crei o ripristini il wallet.</p><output id="address"></output><span id="wallet-status" class="status-tag">Nessun wallet aperto</span></div>
+        <ol class="journey"><li><strong>Crea sul dispositivo</strong><span>Una chiave casuale, un indirizzo SegWit.</span></li><li><strong>Conserva il file cifrato</strong><span>Almeno due copie esterne su supporti diversi e in luoghi separati, più una copia cloud. Password custodita a parte.</span></li><li><strong>Verifica prima di attivare</strong><span>File, password e indirizzo devono coincidere.</span></li></ol>
+        <details id="connection-panel" hidden><summary>Avanzate · Connessione</summary>
+          <p>I nodi Pinco Labs sono una scelta predefinita, non un obbligo. Nella tua copia locale puoi configurare altri server Electrum compatibili con BLOZ, anche gestiti da te, oppure usare il tuo nodo BLOZ Core tramite il collegamento RPC locale.</p>
+          <p>Questa versione richiede due endpoint Electrum WSS distinti per il confronto delle risposte. Abbiamo collaudato i due server Pinco Labs; la compatibilità con installazioni di terzi non è ancora stata collaudata. Il menu mostra i profili configurati, non un elenco di tutti i nodi disponibili.</p>
+          <p>La connessione serve a leggere la blockchain e trasmettere transazioni già firmate. Cambiarla non cambia chiavi, indirizzo o backup. Scegli soltanto server di cui ti fidi.</p>
+          <p>Il gestore del nodo scelto può vedere l’IP della connessione e le richieste pubbliche del wallet. Le sue regole di conservazione dei dati possono differire da quelle di Pinco Labs. Chiavi private e password del backup restano sul dispositivo.</p>
+          <form id="connection-form"><label for="connection-choice">Connessione configurata</label><select id="connection-choice"></select><button type="submit">Verifica e usa connessione</button></form>
+          <button id="connection-default">Ripristina connessione predefinita</button>
+          <p id="connection-status" role="status" aria-live="polite">Caricamento configurazione…</p>
+          <p>Per aggiungere server alla tua copia locale, configura BLOZ_CONNECTIONS_FILE e riavvia il servizio. Sono richiesti due server WSS distinti. Il profilo nodo locale usa il collegamento RPC sul PC: non inserire password RPC in questa pagina. Consulta la guida inclusa nei sorgenti.</p>
+        </details>
+        <details><summary>Come viene protetto il backup</summary>
+          <p>Il file protegge la chiave privata con la tua password. Cifratura e apertura avvengono sul tuo dispositivo: la password non viene inserita nel file né inviata ai nodi.</p>
+          <p>Usiamo AES-256-GCM, che cifra i dati e ne verifica l’integrità. La chiave di cifratura viene derivata dalla password con PBKDF2-HMAC-SHA-256, con 600.000 iterazioni per rallentare i tentativi di indovinarla.</p>
+          <p>Ogni nuova cifratura genera un salt casuale di 128 bit e un IV casuale di 96 bit tramite il generatore crittografico del browser. Il tag di autenticazione è di 128 bit. Anche i parametri di formato e rete sono autenticati. Scaricare un’altra copia dello stesso backup conserva invece lo stesso file cifrato.</p>
+          <p>Il JSON contiene in chiaro i parametri tecnici necessari per aprirlo, ma chiave privata e indirizzo sono cifrati. La robustezza della password resta essenziale: scegli una password lunga e unica, per esempio composta da più parole casuali. Il minimo di 12 caratteri non garantisce da solo una password forte. La cifratura del file non protegge da un dispositivo compromesso mentre il wallet è aperto.</p>
+        </details>
+        <p class="local-note">Blocco dopo 5 minuti di inattività e quando nascondi la pagina. Prima dell’attivazione, una sessione bloccata va ripristinata dal file già scaricato.</p>
+      </aside>
+    </div>
+    <section aria-label="Avvertenze e privacy" id="usage-notices">
+      <p>Progetto e contatto pubblico: Pinco Labs · <a href="mailto:info@pinco-labs.com">info@pinco-labs.com</a>. Non inviare password, chiavi private o backup all’assistenza.</p>
+      <details><summary>Condizioni d’uso e avvertenze · testo in revisione</summary>
+        <p>Software sperimentale, sottoposto a revisione interna e non a un audit indipendente. Può contenere difetti: nessuna garanzia assoluta di sicurezza, disponibilità o recupero. Restano salvi i diritti e le responsabilità inderogabili previsti dalla legge.</p>
+        <p>Pinco Labs non custodisce i tuoi fondi e non può recuperare password o backup persi. Per il recupero da file servono il JSON integro e la sua password. Conserva copie su supporti e in luoghi diversi e verificane periodicamente la corrispondenza con il wallet. La copia nel browser può essere cancellata.</p>
+        <p>Il cambio password non revoca i vecchi backup. Controlla rete, destinatario, importo e commissioni prima di inviare: il wallet non può annullare una transazione confermata. L’accettazione in mempool non è una conferma; verifica un invio dall’esito incerto prima di ripeterlo.</p>
+        <p>Proteggi dispositivo, browser ed eventuale account cloud. Un dispositivo o un sito compromesso può mettere a rischio il wallet anche se il codice è aperto. Il testo completo e i dati del gestore sono in preparazione prima della pubblicazione.</p>
+      </details>
+      <details><summary>Privacy e dati nel browser</summary>
+        <p>Il browser conserva una copia cifrata del wallet e la connessione scelta, fino alla loro rimozione o alla cancellazione dei dati del sito. Conserva un backup esterno verificato prima di cancellarli. Non usiamo strumenti pubblicitari o di profilazione; Cloudflare può usare strumenti tecnici per proteggere il sito.</p>
+        <p>I nodi scelti possono associare l’IP alle richieste pubbliche del wallet. I nodi Pinco Labs sono facoltativi: la copia locale permette profili Electrum BLOZ personalizzati o il collegamento RPC al proprio Core. Chiavi private e password non vengono inviate ai nodi.</p>
+        <p>Il sito pubblico usa Cloudflare; le connessioni Electrum sono dirette. I nuovi log applicativi dei nostri nodi conservano avvisi ed errori per circa 24 ore con rotazione oraria; i log di sistema e precedenti seguono politiche separate. Non garantiamo anonimato completo. I dettagli sono in revisione prima della pubblicazione.</p>
+      </details>
+      <details><summary>Licenza del codice · AGPL</summary>
+        <p>Copyright © 2026 Pinco Labs. Codice originale sotto GNU AGPL versione 3 o successiva; dipendenze con le rispettive licenze e attribuzioni. La licenza tutela l’accesso al sorgente secondo le sue condizioni e non certifica la sicurezza del software.</p>
+        <p>Il testo integrale è incluso nei sorgenti e nelle licenze del pacchetto. <a id="source-link" href="https://github.com/pinco-labs/bloz-wallet">Sorgente del wallet</a>.</p>
+      </details>
+    </section>
+    <footer><span>PINCO LABS · VERSIONE SPERIMENTALE</span><span>Nessuna telemetria applicativa</span><a href="#usage-notices">Privacy e dati nel browser</a></footer>
+  </main>
+</body>
+</html>

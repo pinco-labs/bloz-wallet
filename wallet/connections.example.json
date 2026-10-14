@@ -1,0 +1,9 @@
+[
+  {
+    "id": "my-electrum",
+    "label": "I miei server Electrum",
+    "type": "electrum",
+    "endpoints": ["wss://electrum-one.example:50004/", "wss://electrum-two.example:50004/"]
+  },
+  {"id": "local", "label": "Il mio nodo BLOZ (WSL)", "type": "local"}
+]

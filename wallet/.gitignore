@@ -1,0 +1,7 @@
+dist-demo/
+node_modules/
+dist/
+dist-mainnet-offline/
+dist-mainnet/
+dist-electrum/
+dist-public/
